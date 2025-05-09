@@ -4,7 +4,7 @@ package proto;
 
 import "google/protobuf/empty.proto";
 
-option go_package = "pubsub-service/proto";
+option go_package = "gen/go";
 
 service PubSub {
     // Подписка (сервер отправляет поток событий)
@@ -21,6 +21,7 @@ message SubscribeRequest {
 message PublishRequest {
     string key = 1;
     string data = 2;
+    
 }
 
 message Event {
