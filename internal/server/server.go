@@ -8,9 +8,6 @@ import (
 	"github.com/rs/zerolog"
 	"google.golang.org/grpc"
 
-	//"google.golang.org/grpc/codes"
-	//"google.golang.org/grpc/status"
-
 	"github.com/AlexandrZlnov/pubsub-service/proto"
 
 	"github.com/AlexandrZlnov/pubsub-service/config"

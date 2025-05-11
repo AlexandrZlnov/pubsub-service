@@ -16,6 +16,6 @@ func NewDefaultConfig() *Config {
 		GRPCPort:         "50051",
 		ShutdownTimeout:  10 * time.Second,
 		MaxSubscriptions: 1000,
-		MaxEventQueue:    100,
+		MaxEventQueue:    1000,
 	}
 }

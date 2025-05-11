@@ -5,10 +5,8 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	//"time"
 
 	"github.com/rs/zerolog"
-	//"github.com/rs/zerolog/log"
 
 	"github.com/AlexandrZlnov/pubsub-service/config"
 	"github.com/AlexandrZlnov/pubsub-service/internal/server"

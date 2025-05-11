@@ -7,18 +7,15 @@ import (
 )
 
 // MessageHandler is a callback function that processes messages delivered to subscribers.
-// MessageHandler — это функция обратного вызова, которая обрабатывает сообщения, доставляемые подписчикам.
 type MessageHandler func(msg interface{})
 
 type Subscription interface {
 	// Unsubscribe will remove interest in the current subject subscription is for.
-	// Unsubscribe уберет интерес к текущей теме, на которую оформлена подписка.
 	Unsubscribe()
 }
 
 type SubPub interface {
 	// Subscribe creates an asynchronous queue subscriber on the given subject.
-	// Подписка создает асинхронную очередь подписчиков по указанной теме.
 	Subscribe(subject string, cb MessageHandler) (Subscription, error)
 
 	// Publish publishes the msg argument to the given subject.
@@ -27,8 +24,6 @@ type SubPub interface {
 
 	// Close will shutdown sub-pub system.
 	// May be blocked by data delivery until the context is canceled.
-	// Close закроет систему sub-pub.
-	// Может быть заблокировано доставкой данных до тех пор, пока контекст не будет отменен.
 	Close(ctx context.Context) error
 }
 
@@ -128,7 +123,6 @@ func (s *subPub) Publish(subject string, msg interface{}) error {
 			select {
 			case sub.msgChan <- msg:
 			default:
-				// если канал полон, пропускаем сообщение (можно добавить логирование)
 			}
 		}
 		sub.mu.Unlock()
